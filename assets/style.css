@@ -1,0 +1,23 @@
+/* Estilo responsivo do dashboard */
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f3f6fa; color: #263445; font-family: Arial, sans-serif; }
+.page { max-width: 1500px; margin: 0 auto; padding: 24px; }
+.hero { padding: 28px 32px; border-radius: 20px; color: white; background: linear-gradient(125deg, #102a43, #1f5673); box-shadow: 0 8px 24px #102a431c; }
+.hero h1 { margin: 8px 0; font-size: clamp(28px, 4vw, 42px); }
+.hero p { margin: 8px 0 0; color: #e0edf5; line-height: 1.5; }
+.hero .eyebrow { font-size: 12px; letter-spacing: 1.6px; font-weight: 700; }
+.filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 18px 0; }
+.filter-card, .chart-card { background: white; border: 1px solid #e5ebf1; border-radius: 16px; box-shadow: 0 4px 16px #102a4308; }
+.filter-card { padding: 18px; }
+.filter-card label { display: block; font-weight: 700; margin-bottom: 10px; font-size: 14px; }
+.charts { display: grid; gap: 18px; }
+.chart-card { padding: 10px; min-width: 0; }
+.map-card { overflow: hidden; }
+.two-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.pie-card { display: grid; grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.5fr); align-items: center; gap: 14px; padding: 20px; }
+.pie-controls { padding: 8px; }
+.pie-controls h2 { margin-top: 0; }
+.pie-controls p { color: #607080; line-height: 1.5; }
+.footer { text-align: center; color: #718096; padding: 20px 8px 6px; font-size: 12px; }
+@media (max-width: 850px) { .two-columns, .filters, .pie-card { grid-template-columns: 1fr; } .page { padding: 12px; } .hero { padding: 24px; } }
