@@ -222,7 +222,7 @@ def atualizar_graficos(tipo_medalha, ano_escolhido):
     rotulo = MEDAL_LABELS[coluna]
 
     # Mapa: agrega a medalha escolhida por país no período de 1992 a 2020.
-    por_pais = df.groupby("Country_Name", as_index=False)[coluna].sum()
+    por_pais = df.groupby(["Country_Name", "Country_Display"], as_index=False)[coluna].sum()
     mapa = px.choropleth(
         por_pais,
         locations="Country_Name",
@@ -239,7 +239,7 @@ def atualizar_graficos(tipo_medalha, ano_escolhido):
     # Área empilhada: dez países com maior contagem da métrica selecionada.
     totais = df.groupby("Country_Name")[coluna].sum().nlargest(10).index.tolist()
     serie = df[df["Country_Name"].isin(totais)].groupby(
-        ["Year", "Country_Name"], as_index=False
+        ["Year", "Country_Name", "Country_Display"], as_index=False
     )[coluna].sum()
     area = px.area(
         serie,
