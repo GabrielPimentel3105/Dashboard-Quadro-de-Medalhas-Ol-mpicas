@@ -251,6 +251,23 @@ def atualizar_graficos(tipo_medalha, ano_escolhido):
     )
     aplicar_estilo(area, 430)
 
+    area.update_layout(
+    margin=dict(l=24, r=24, t=130, b=30),
+    title=dict(
+        x=0.03,
+        y=0.99,
+        xanchor="left",
+        font=dict(size=18)
+    ),
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=0.88,
+        xanchor="left",
+        x=0
+    )
+    )
+
     # Barras: filtra diretamente o ano olímpico escolhido.
     dados_ano = df[df["Year"] == int(ano_escolhido)]
     barras_df = dados_ano.groupby(["Country_Name", "Country_Display"], as_index=False)[coluna].sum()
